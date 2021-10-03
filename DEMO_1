@@ -1,0 +1,105 @@
+import 'package:flutter/material.dart';
+
+var InputBar = Container(
+  child: Center(
+    child: Text('Input'),
+  ),
+  height: 100,
+  width: 600,
+  margin: EdgeInsets.all(5),
+  color: Colors.grey,
+);
+numberButton(String n) => Container(
+      child: Text(
+        n,
+        style: TextStyle(color: Colors.black),
+      ),
+      margin: EdgeInsets.all(2),
+      color: Colors.red,
+    );
+var InputNumber = Row(
+  children: [
+    Expanded(child: numberButton('C')),
+    Expanded(child: numberButton('\$')),
+    Expanded(child: numberButton('%')),
+    Expanded(child: numberButton('/')),
+  ],
+);
+BotBut(String n) => Container(
+    margin: EdgeInsets.all(2),
+    child: Expanded(
+        child: Container(
+      child: Text(n),
+      color: Colors.red,
+    )));
+var BottomButton = Row(
+  children: [
+    BotBut('0'),
+    BotBut('.'),
+    BotBut('='),
+  ],
+);
+var InputNumber1 = Row(
+  children: [
+    Expanded(child: numberButton('1')),
+    Expanded(child: numberButton('2')),
+    Expanded(child: numberButton('3')),
+    Expanded(child: numberButton('+')),
+  ],
+);
+var InputNumber2 = Row(
+  children: [
+    Expanded(child: numberButton('4')),
+    Expanded(child: numberButton('5')),
+    Expanded(child: numberButton('6')),
+    Expanded(child: numberButton('-')),
+  ],
+);
+var InputNumber3 = Row(
+  children: [
+    Expanded(child: numberButton('7')),
+    Expanded(child: numberButton('8')),
+    Expanded(child: numberButton('9')),
+    Expanded(child: numberButton('*')),
+  ],
+);
+var InputNumber4 = Row(
+  children: [
+    Expanded(child: numberButton('0')),
+    Expanded(child: numberButton('.')),
+    Expanded(child: numberButton('=')),
+  ],
+);
+var BodyCalculator = Column(
+  children: [
+    InputBar,
+    InputNumber,
+    InputNumber1,
+    InputNumber2,
+    InputNumber3,
+    InputNumber4,
+  ],
+);
+main(List<String> args) {
+  runApp(MaterialApp(
+    title: 'This my APP_demo',
+    home: Scaffold(
+      appBar: AppBar(
+        leading: BackButton(
+          color: Colors.white,
+        ),
+        title: Text(
+          'Calculator',
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
+      body: Container(
+        margin: EdgeInsets.all(30),
+        padding: EdgeInsets.fromLTRB(40, 20, 40, 20),
+        color: Colors.green,
+        child: BodyCalculator,
+      ),
+    ),
+  ));
+}
